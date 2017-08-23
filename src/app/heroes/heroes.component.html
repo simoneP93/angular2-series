@@ -1,6 +1,7 @@
 <div class="row" style="top: 65px;position: relative;display: block;margin: 10px 15px 15px 10px;">
   <div class="card-deck col s12">
-    <div class="card col s4" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero" style="padding-right:50px;padding-left:50px;max-width:350px;margin-right: 15px;margin-left: 15px;">
+    <div class="card col s4" [routerLink]="['/detail', hero.id]" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero"
+      style="padding-right:50px;padding-left:50px;max-width:350px;margin-right: 15px;margin-left: 15px;">
       <img class="card-img-top" src="assets/images.jpg" alt="Card image cap">
       <div class="card-block">
         <h4 class="card-title">Series</h4>
