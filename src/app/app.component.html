@@ -1,0 +1,227 @@
+<!--<h1>{{title}}</h1>-->
+
+<!--<div *ngIf="selectedHero">
+    <h2>{{selectedHero.name}} details!</h2>
+    <div><label>id: </label>{{selectedHero.id}}</div>
+    <div>
+        <label>name: </label>
+        <input [(ngModel)]="selectedHero.name" placeholder="name" />
+    </div>
+</div>-->
+<!-- Dropdown Structure -->
+<!--<header>
+    <div aria-busy="true" aria-label="Loading, please wait." role="progressbar"></div>
+</header>-->
+
+<ul id="dropdown1" class="dropdown-content" style="width:100%;top:65px !important">
+    <div class="row">
+        <div class="col s4">
+            <li><a href="#!">one</a></li>
+
+        </div>
+        <div class="col s4">
+            <li><a href="#!">one</a></li>
+
+        </div>
+        <div class="col s4">
+            <li><a href="#!">three</a></li>
+
+        </div>
+    </div>
+
+    <!--<li class="divider"></li>-->
+    <div class="row">
+        <div class="col s4">
+            <li><a href="#!">one</a></li>
+
+        </div>
+        <div class="col s4">
+            <li><a href="#!">one</a></li>
+
+        </div>
+        <div class="col s4">
+            <li><a href="#!">three</a></li>
+
+        </div>
+    </div>
+</ul>
+
+<aside-layout>
+    <aside-menu #left1 side="left" width="240px" isBackdrop="true" sideMode="over" style="background-color:white">
+        <div class="row" style="height:100px;background-color:azure">
+            <h2 style="line-height: 2;text-align: center;width: 100%;"> logo</h2>
+        </div>
+        <ul>
+            <div class="row">
+                <div class="col m1"> <i class="tiny material-icons">insert_chart</i></div>
+                <div class="col s12">
+                    <li>Homepage</li>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s1"> <i class="tiny material-icons">insert_chart</i></div>
+                <div class="col s11">
+                    <li>Homepage</li>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s1"> <i class="tiny material-icons">insert_chart</i></div>
+                <div class="col s11">
+                    <li>Homepage</li>
+                </div>
+            </div>
+        </ul>
+    </aside-menu>
+    <!--<aside-menu #left2 side="left" width="240px" isBackdrop="true" sideMode="push" style="background-color:white">
+        <div class="row" style="height:100px;background-color:azure">
+            <h2 style="line-height: 2;text-align: center;width: 100%;"> logo</h2>
+        </div>
+        <ul>
+            <li>Homepage</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </aside-menu>-->
+    <div class="aside-content row" style="margin:0">
+        <!--<div style="margin:auto; display:table">
+                <button type="button" (click)="left2.toggle()">Toggle Left Push Aside</button>
+                <button type="button" (click)="right2.toggle()">Toggle Right Push Aside</button>
+            </div>-->
+        <nav>
+            <div class="nav-wrapper" style="background-color: #2221a5">
+                <div class="col s1" style="text-align: center;">
+                    <i class="fa fa-bars" (click)="left1.toggle()" aria-hidden="true"></i>
+                </div>
+                <!--<div class="col s2">
+                    <a href="#" class="brand-logo">Logo</a>
+                </div>-->
+                <div class="col s5">
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="sass.html" style="color: white;font-size: 1.1em; font-weight: 500;">Sass</a></li>
+                        <li><a href="badges.html" style="color: white;font-size: 1.1em; font-weight: 500;">Components</a></li>
+                        <li><a href="collapsible.html" style="color: white;font-size: 1.1em; font-weight: 500;">JavaScript</a></li>
+                        <li>
+                            <a class="dropdown-button" style="color: white;font-size: 1.1em; font-weight: 500;" href="#!" data-activates="dropdown1">Dropdown
+                            <i class="material-icons right" style="line-height: 2.6;">
+                                arrow_drop_down</i>
+                                </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="input-field col s6">
+                    <i class="material-icons prefix" style="line-height:2.6">search</i>
+                    <input type="text" id="autocomplete-input" class="autocomplete">
+                    <label for="autocomplete-input" style="line-height:3;color:white">Search</label>
+                    <!--<form>
+                        <div class="input-field">
+                            <input id="search" type="search" required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>-->
+                </div>
+            </div>
+        </nav>
+    </div>
+</aside-layout>
+<!--<nav class="navbar navbar-inverse bg-inverse">
+ 
+    <form class="form-inline" style="width:100%">
+        <input class="form-control mr-sm-2" type="text" style="    height: 1.35rem;width:100%" placeholder="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>-->
+<!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>-->
+
+<!--<h2>My Heroes</h2>-->
+<!--<ul class="list-group">
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" class="list-group-item justify-content-between" [class.selected]="hero === selectedHero">
+
+        <span class="badge badge-default badge-pill">{{hero.id}}</span> {{hero.name}}
+    </li>
+
+</ul>-->
+
+<!--<div class="row" style="top: 65px;position: relative;display: block;margin: 10px 15px 15px 10px;">
+    <div class="card-deck col s12">
+        <div class="card col s4" style="padding-right:50px;padding-left:50px;max-width:350px;margin-right: 15px;margin-left: 15px;">
+            <img class="card-img-top" src="assets/images.jpg" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Series</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card col s4" style="padding-right:50px;padding-left:50px;max-width:350px;margin-right: 15px;margin-left: 15px;">
+            <img class="card-img-top" src="assets/images.jpg" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Series</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card col s4" style="padding-right:50px;padding-left:50px;max-width:350px;margin-right: 15px;margin-left: 15px;">
+            <img class="card-img-top" src="assets/images.jpg" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Series</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="row" style="top: 65px;position: relative;display: block;margin: 10px 15px 15px 10px;">
+    <!--<div class="row">
+        <hero-detail [hero]="selectedHero"></hero-detail>
+    </div>-->
+
+    <div class="card-deck col s12">
+        <!--<div class="card col s4" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+            <img class="card-img-top" src="assets/images.jpg" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">{{hero.name}}</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>-->
+        <div class="card col s4" *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero" style="padding-right:50px;padding-left:50px;max-width:350px;margin-right: 15px;margin-left: 15px;">
+            <img class="card-img-top" src="assets/images.jpg" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Series</h4>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<ul class="heroes">
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">-->
+<!-- each hero goes here -->
+<!--<span class="badge">{{hero.id}}</span> {{hero.name}}
+</li>
+</ul>-->
+<!--The content below is only a placeholder and can be replaced.-->
+<!--<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
+  </li>
+</ul>-->
