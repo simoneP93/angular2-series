@@ -1,0 +1,71 @@
+<!-- <ul class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header">
+      <i class="material-icons">filter_drama</i> First
+      <span class="new badge">4</span></div>
+    <div class="collapsible-body">
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header">
+      <i class="material-icons">place</i> Second
+      <span class="badge">1</span></div>
+    <div class="collapsible-body">
+      <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+  </li>
+<!-- </ul> -->
+<!--<ul class="collection">
+
+  <li class="collection-item avatar">
+    <img src="images/yuna.jpg" alt="" class="circle">
+    <span class="title">Title</span>
+    <p>First Line <br> Second Line
+    </p>
+    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+  </li>
+  <li class="collection-item avatar">
+    <i class="material-icons circle">folder</i>
+    <span class="title">Title</span>
+    <p>First Line <br> Second Line
+    </p>
+    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+  </li>
+  <li class="collection-item avatar">
+    <i class="material-icons circle green">insert_chart</i>
+    <span class="title">Title</span>
+    <p>First Line <br> Second Line
+    </p>
+    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+  </li>
+  <li class="collection-item avatar">
+    <i class="material-icons circle red">play_arrow</i>
+    <span class="title">Title</span>
+    <p>First Line <br> Second Line
+    </p>
+    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+  </li>
+</ul> -->
+
+
+<div class="row" style="top: 65px;position: relative;display: block;margin: 10px 15px 15px 10px;">
+  <div class="card-deck col s12">
+    <div class="card col s4" [routerLink]="['/show', show.id]" *ngFor="let show of topShows" (click)="onSelect(show)" style="padding-right:50px;padding-left:50px;max-width:350px;margin-right: 15px;margin-left: 15px;">
+      <img class="card-img-top" style="margin: 0 0px 0 20px;" src="{{show.image.medium}}" alt="Card image cap">
+
+      <!-- <div class="card-block" style="height: 135px;display: block;text-overflow: ellipsis;overflow: hidden;">
+        <h4 class="card-title">{{show.name}}</h4>
+        <div [innerHTML]="show.summary">
+        </div>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div> -->
+      <div class="row" style="text-align: center; font-size: 1.5em;font-weight: 600;">
+
+        <span>{{show.name}}</span>
+
+      </div>
+      <show-info [show]="show"></show-info>
+    </div>
+  </div>
+</div>
