@@ -12,6 +12,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'show/:id', component: ShowDetailComponent },
     { path: 'detail/:id', component: HeroDetailComponent },
+    { path: 'films', component: HeroDetailComponent },    
     { path: 'heroes', component: HeroesComponent },
     { path: 'episodes', component: EpisodesComponent }
 ];
