@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpModule } from '@angular/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './routes/app-routing.module';
 
 // Imports for loading & configuring the in-memory web api
@@ -23,6 +23,7 @@ import { ShowDetailComponent } from './show-detail/show-detail.component';
 import { ShowInfoComponent } from './show-info/show-info.component';
 import { FilmsComponent } from './films/films.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -36,10 +37,12 @@ import { FilmDetailComponent } from './film-detail/film-detail.component';
     ShowDetailComponent,
     ShowInfoComponent,
     FilmsComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     // AsideModule,
     AppRoutingModule,

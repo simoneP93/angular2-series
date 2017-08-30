@@ -60,12 +60,7 @@ export class SeriesService {
       .then(response => response.json())
       .catch(this.handleError);
   }
-   getGenres() {
-    return this.http.get(FilmAPI+ '/genre/tv/list?api_key=1053186c451dc5c0c9a2a89a6fb14c15&language=en-US')
-      .toPromise()
-      .then(response => response.json())
-      .catch(this.handleError);
-  }
+   
   getEpisodesBySeason(seasonId) {
     return this.http.get(SeriesAPI+ '/seasons/' + seasonId + '/episodes')
       .toPromise()
