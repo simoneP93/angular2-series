@@ -14,11 +14,15 @@ import { AppRoutingModule } from './routes/app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
-import { HeroService } from './services/hero.service';
+import { SeriesService } from './services/series.service';
+import { FilmService } from './services/film.service';
+
 import { EpisodesComponent } from './episodes/episodes.component';
 import { HomeComponent } from './home/home.component';
 import { ShowDetailComponent } from './show-detail/show-detail.component';
 import { ShowInfoComponent } from './show-info/show-info.component';
+import { FilmsComponent } from './films/films.component';
+import { FilmDetailComponent } from './film-detail/film-detail.component';
 
 
 
@@ -30,7 +34,9 @@ import { ShowInfoComponent } from './show-info/show-info.component';
     EpisodesComponent,
     HomeComponent,
     ShowDetailComponent,
-    ShowInfoComponent
+    ShowInfoComponent,
+    FilmsComponent,
+    FilmDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,7 @@ import { ShowInfoComponent } from './show-info/show-info.component';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [HeroService],
+  providers: [SeriesService,FilmService],
   bootstrap: [AppComponent]
 })
 

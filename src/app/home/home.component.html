@@ -15,7 +15,7 @@
       <p>Lorem ipsum dolor sit amet.</p>
     </div>
   </li>
-<!-- </ul> -->
+<</ul> -->
 <!--<ul class="collection">
 
   <li class="collection-item avatar">
@@ -48,24 +48,51 @@
   </li>
 </ul> -->
 
-
-<div class="row" style="top: 65px;position: relative;display: block;margin: 10px 15px 15px 10px;">
-  <div class="card-deck col s12">
-    <div class="card col s4" [routerLink]="['/show', show.id]" *ngFor="let show of topShows" (click)="onSelect(show)" style="padding-right:50px;padding-left:50px;max-width:350px;margin-right: 15px;margin-left: 15px;">
-      <img class="card-img-top" style="margin: 0 0px 0 20px;" src="{{show.image.medium}}" alt="Card image cap">
-
-      <!-- <div class="card-block" style="height: 135px;display: block;text-overflow: ellipsis;overflow: hidden;">
-        <h4 class="card-title">{{show.name}}</h4>
-        <div [innerHTML]="show.summary">
+<div class="row main-content">
+    <div class="card small col s6" style="height:auto" *ngIf="topShows">
+        <div class="card col s6" [routerLink]="['/show', show.id]" *ngFor="let show of topShows | slice:0:6">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{show.image.medium}}">
+            </div>
+            <div class="card-content" style="padding: 6px 0px 0px 0px;">
+                <span class="card-title activator grey-text text-darken-4" style="font-size:15px;font-weight:500">{{show.name}}<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
         </div>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div> -->
-      <div class="row" style="text-align: center; font-size: 1.5em;font-weight: 600;">
 
-        <span>{{show.name}}</span>
-
-      </div>
-      <show-info [show]="show"></show-info>
     </div>
-  </div>
+    <div class="card small col s6" style="height:auto" *ngIf="films">
+        <div class="card col s6" [routerLink]="['/film',  fl.id]" *ngFor="let fl of films.results | slice:0:6">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="https://image.tmdb.org/t/p/w185/{{fl.poster_path}}">
+            </div>
+            <div class="card-content" style="padding: 6px 0px 0px 0px;">
+                <span class="card-title activator grey-text text-darken-4" style="font-size:15px;font-weight:500">{{fl.title}}<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!--
+<div class="row" style="top: 65px;position: relative;display: block;margin: 10px 15px 15px 10px;">
+    <div class="card-deck col s12">
+        <div class="card col s4" [routerLink]="['/show', show.id]" *ngFor="let show of topShows"
+         (click)="onSelect(show)" style="padding-right:50px;padding-left:50px;max-width:350px;margin-right: 15px;margin-left: 15px;">
+            <img class="card-img-top" style="margin: 0 0px 0 20px;" src="{{show.image.medium}}" alt="Card image cap">
+
+            <div class="row" style="text-align: center; font-size: 1.5em;font-weight: 600;">
+
+                <span>{{show.name}}</span>
+
+            </div>
+            <show-info [show]="show"></show-info>
+        </div>
+    </div>
+</div>-->

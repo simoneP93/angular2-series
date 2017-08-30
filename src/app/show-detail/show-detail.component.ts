@@ -1,5 +1,5 @@
 import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HeroService } from '../services/hero.service';
+import { SeriesService } from '../services/series.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { NgClass } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
@@ -22,7 +22,7 @@ export class ShowDetailComponent implements OnInit {
   crew: any;
 
   constructor(
-    private heroService: HeroService,
+    private seriesService: SeriesService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -33,7 +33,7 @@ export class ShowDetailComponent implements OnInit {
 
   getShowDetail() {
     this.route.paramMap
-      .switchMap((params: ParamMap) => this.heroService.getSingleShow(+params.get('id')))
+      .switchMap((params: ParamMap) => this.seriesService.getSingleShow(+params.get('id')))
       .subscribe(show => {
         this.show = show;
         console.log(this.show);
@@ -45,7 +45,7 @@ export class ShowDetailComponent implements OnInit {
 
   getSeasonsByShow() {
     this.route.paramMap
-      .switchMap((params: ParamMap) => this.heroService.getSeasonsByShow(+params.get('id')))
+      .switchMap((params: ParamMap) => this.seriesService.getSeasonsByShow(+params.get('id')))
       .subscribe(seasons => {
         this.seasons = seasons;
         console.log(this.seasons);
@@ -68,7 +68,7 @@ export class ShowDetailComponent implements OnInit {
   }
   getCastByShow() {
     this.route.paramMap
-      .switchMap((params: ParamMap) => this.heroService.getCastByShow(+params.get('id')))
+      .switchMap((params: ParamMap) => this.seriesService.getCastByShow(+params.get('id')))
       .subscribe(cast => {
         this.cast = cast;
         console.log(this.cast);
@@ -76,7 +76,7 @@ export class ShowDetailComponent implements OnInit {
   }
   getCrewByShow() {
     this.route.paramMap
-      .switchMap((params: ParamMap) => this.heroService.getCrewByShow(+params.get('id')))
+      .switchMap((params: ParamMap) => this.seriesService.getCrewByShow(+params.get('id')))
       .subscribe(crew => {
         this.crew = crew;
         console.log(this.crew);

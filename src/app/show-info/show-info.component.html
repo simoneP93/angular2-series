@@ -1,76 +1,76 @@
-<div class="row" style="text-align:center;margin-top:50px">
+<div class="row" style="text-align:center;margin-top:50px" *ngIf="show">
 
-  <div class="col s12" style="padding-bottom:10px">
-    <div class="col m4">
-      <div style="padding-bottom:5px">
+    <div class="col s12" style="padding-bottom:10px">
+        <div class="col m4">
+            <div style="padding-bottom:5px">
 
-        Year
-      </div>
-      <div>
-        {{show.premiered | slice:0:4}}
-
-
-
-      </div>
-    </div>
-    <div class="col m4">
-      <div style="padding-bottom:5px">
-
-        Genrer
-      </div>
-
-      <div>
-        {{show.genres[0]}}
-      </div>
-
-    </div>
-    <div class="col m4">
-      <div style="padding-bottom:5px">
-
-        Rating
-      </div>
-      <div>
-        {{show.rating.average}}
-
-      </div>
-    </div>
-  </div>
-
-  <div class="col s12" style="padding-bottom:10px">
-
-    <div class="col m4">
-
-      <div style="padding-bottom:5px">
-
-        Country
-      </div>
-      <div>
-        {{show.network.country.code}}
+                Year
+            </div>
+            <div>
+                {{show.premiered | slice:0:4}}
 
 
 
-      </div>
-    </div>
-    <div class="col m4">
-      <div style="padding-bottom:5px">
+            </div>
+        </div>
+        <div class="col m4">
+            <div style="padding-bottom:5px">
 
-        Newtwork
-      </div>
-      <div>
-        {{show.network.name}}
+                Genrer
+            </div>
 
-      </div>
-    </div>
-    <div class="col m4">
-      <div style="padding-bottom:5px">
+            <div>
+                {{show.genres[0]}}
+            </div>
 
-        Status
-      </div>
-      <div>
-        {{show.status}}
-      </div>
+        </div>
+        <div class="col m4">
+            <div style="padding-bottom:5px">
+
+                Rating
+            </div>
+            <div>
+                {{show.rating.average}}
+
+            </div>
+        </div>
     </div>
 
-  </div>
+    <div class="col s12" style="padding-bottom:10px" *ngIf="show.network">
+
+        <div class="col m4">
+
+            <div style="padding-bottom:5px">
+
+                Country
+            </div>
+            <div>
+                {{show.network.country.code}}
+
+
+
+            </div>
+        </div>
+        <div class="col m4">
+            <div style="padding-bottom:5px">
+
+                Newtwork
+            </div>
+            <div>
+                {{show.network.name}}
+
+            </div>
+        </div>
+        <div class="col m4">
+            <div style="padding-bottom:5px">
+
+                Status
+            </div>
+            <div>
+                {{show.status}}
+            </div>
+        </div>
+
+    </div>
 
 </div>

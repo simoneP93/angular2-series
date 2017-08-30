@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroService } from '../services/hero.service';
+import { SeriesService } from '../services/series.service';
+import { FilmService } from '../services/film.service';
+
 import { SlicePipe } from '@angular/common';
 
 @Component({
@@ -10,19 +12,29 @@ import { SlicePipe } from '@angular/common';
 export class HomeComponent implements OnInit {
 
   topShows: any;
+films:any;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private seriesService: SeriesService,
+  private filmService: FilmService) { }
 
   ngOnInit() {
     this.getTopShows();
+    this.getTopFilms();
   }
 
 
   getTopShows(): void {
     // debugger;
-    this.heroService.getTopShows().then(shows => {
+    this.seriesService.getTopShows().then(shows => {
       this.topShows = shows;
       console.log(this.topShows);
+    });
+  }
+  getTopFilms(): void {
+    // debugger;
+    this.filmService.getFilms().then(films => {
+      this.films = films;
+      console.log(this.films);
     });
   }
 }

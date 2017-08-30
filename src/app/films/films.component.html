@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="card small col s12 wrapper-films " *ngIf="films">
+        <div class="card col s4" [routerLink]="['/film',  fl.id]" *ngFor="let fl of films.results | slice:0:6">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator img-film" src="https://image.tmdb.org/t/p/w300/{{fl.poster_path}}">
+            </div>
+            <div class="card-content" style="padding: 6px 0px 0px 0px;">
+                <span class="card-title activator grey-text text-darken-4" style="font-size:15px;font-weight:500">{{fl.title}}<i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+        </div>
+    </div>
+</div>

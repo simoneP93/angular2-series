@@ -1,119 +1,118 @@
 <div class="row">
-  <div class="col s12 m12" *ngIf="show">
-    <h2 class="header">{{show.name}}</h2>
-    <div class="card horizontal">
-      <div class="card-image" style="height: 100%;">
-        <img style="margin: 28px 20px 0 20px;" src="{{show.image.medium}}">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p style="font-size: 1.2em;margin-bottom: 10px;" *ngIf="show && show.schedule">
-            <span *ngFor="let t of show.schedule.days">{{t}}</span><span> at {{show.schedule.time}}</span>
-          </p>
-          <div [innerHTML]="show.summary">
-          </div>
-          <show-info [show]="show"></show-info>
-        </div>
+    <div class="col s12 m12" *ngIf="show">
+        <h2 class="header">{{show.name}}</h2>
+        <div class="card horizontal">
+            <div class="card-image" style="height: 100%;">
+                <img style="margin: 28px 20px 0 20px;" src="{{show.image.medium}}">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p style="font-size: 1.2em;margin-bottom: 10px;" *ngIf="show && show.schedule">
+                        <span *ngFor="let t of show.schedule.days">{{t}}</span><span> at {{show.schedule.time}}</span>
+                    </p>
+                    <div [innerHTML]="show.summary">
+                    </div>
+                    <show-info [show]="show"></show-info>
+                </div>
 
-      </div>
-      <!-- <div class="card-action row">
+            </div>
+            <!-- <div class="card-action row">
         <a href="#">This is a link</a>
       </div> -->
-    </div>
-    <div class="card-tabs">
-      <ul class="tabs tabs-fixed-width">
-        <li class="tab"><a class="active" (click)="switchTabsFunction(0)" href="#test4">Episodi</a></li>
-        <li class="tab"><a href="#test5" (click)="switchTabsFunction(1)">Cast</a></li>
-        <li class="tab"><a href="#test6" (click)="switchTabsFunction(2)">Crew</a></li>
-      </ul>
-    </div>
-    <div class="card-content grey lighten-4">
-      <div id="test4" style="margin: 35px;" *ngIf="selectedTab==0">
-
-        <div class="row">
-          <div class="col s2" *ngFor="let season of seasons" [attr.data-index]="i" (click)="getEpisodesBySeason(season.number)">
-            <img [class.season-selected]="seasonSelected==season.number" style="width:150px;" src="{{season.image.medium}}" alt="">
-          </div>
         </div>
-      </div>
-      <div id="test5" *ngIf="selectedTab==1">
-        <div class="row">
-          <div class="col s3" *ngFor="let cs of cast">
-            <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img style="width: 260px;margin: 14px auto;" class="activator" src="{{cs.character.image.medium}}">
-              </div>
-              <div class="card-content" style="padding: 5px 38px 5px 44px;">
-                <i class="material-icons right">more_vert</i>
+        <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+                <li class="tab"><a class="active" (click)="switchTabsFunction(0)">Episodi</a></li>
+                <li class="tab"><a (click)="switchTabsFunction(1)">Cast</a></li>
+                <li class="tab"><a (click)="switchTabsFunction(2)">Crew</a></li>
+            </ul>
+        </div>
+        <div class="card-content grey lighten-4">
+            <div id="test4" style="margin: 35px;" *ngIf="selectedTab==0">
 
-                <span class="card-title activator grey-text text-darken-4">
+                <div class="row">
+                    <div class="col s2" *ngFor="let season of seasons" [attr.data-index]="i" (click)="getEpisodesBySeason(season.number)">
+                        <img [class.season-selected]="seasonSelected==season.number" style="width:150px;" src="{{season.image.medium}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div id="test5" *ngIf="selectedTab==1">
+                <div class="row">
+                    <div class="col s3" *ngFor="let cs of cast">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img style="width: 260px;margin: 14px auto;" class="activator" src="{{cs.character.image.medium}}">
+                            </div>
+                            <div class="card-content" style="padding: 5px 15px 5px 16px;">
+                                <i class="material-icons right">more_vert</i>
+
+                                <span class="card-title activator grey-text text-darken-4">
                   <span style="font-size:15px;font-weight:500">{{cs.person.name}} as </span>
-                <p style="font-size:16px;font-weight:600"> {{cs.character.name}}</p>
-                </span>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title
+                                <p style="font-size:16px;font-weight:600"> {{cs.character.name}}</p>
+                                </span>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Card Title
                   <i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-              </div>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div id="test6" *ngIf="selectedTab==2">
-        <div class="row">
-          <div class="col s3" *ngFor="let cr of crew">
-            <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img style="width: 260px;margin: 14px auto;" class="activator" src="{{cr.person.image.medium}}">
-              </div>
-              <div class="card-content" style="padding: 5px 38px 5px 44px;">
-                <i class="material-icons right">more_vert</i>
+            <div id="test6" *ngIf="selectedTab==2">
+                <div class="row">
+                    <div class="col s3" *ngFor="let cr of crew">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img style="width: 260px;margin: 14px auto;" class="activator" src="{{cr.person.image.medium}}">
+                            </div>
+                            <div class="card-content" style="padding: 5px 15px 5px 16px;">
+                                <i class="material-icons right">more_vert</i>
 
-                <span class="card-title activator grey-text text-darken-4">
+                                <span class="card-title activator grey-text text-darken-4">
                   <span style="font-size:15px;font-weight:500">{{cr.person.name}}</span>
-                </span>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title
+                                </span>
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Card Title
                   <i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-              </div>
+                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <ul class="collection" *ngIf="checkSelectedSeason()">
-      <li class="collection-item avatar" *ngFor="let ep of episodes" style="padding-left: 30px;">
-        <div class="row">
-          <div class="col s2">
-            <img style="width:180px" src="{{ep.image.medium}}" alt="">
-          </div>
-          <div class="col s8">
-            <div [innerHTML]="ep.summary">
-            </div>
-          </div>
-          <div class="col s2">
-            <span class="title" style="font-size:1.2em;font-weight:600;margin-top:10px">{{ep.name}}</span>
-            <div style="margin-top:8px">
-              <p>
-                <i style="padding-right:5px" class="fa fa-calendar" aria-hidden="true"></i>{{ep.airdate}} - {{ep.airtime}}
-                <br>
-                <span><i style="padding-right:5px" class="fa fa-clock-o" aria-hidden="true"></i> Time: {{ep.runtime}}</span>
-                <br>
-                <button (click)="goToTvMazeLink(ep.url)" style="width:180px;height:30px;font-size:10px;line-height:3" class="btn waves-effect waves-light"
-                  type="submit" name="action">TVMaze's link
+        <ul class="collection">
+            <li class="collection-item avatar" *ngFor="let ep of episodes">
+                <div class="row">
+                    <div class="col s2">
+                        <img style="width:180px" src="{{ep.image.medium}}" alt="">
+                    </div>
+                    <div class="col s8">
+                        <div [innerHTML]="ep.summary">
+                        </div>
+                    </div>
+                    <div class="col s2">
+                        <span class="title" style="font-size:1.2em;font-weight:600;margin-top:10px">{{ep.name}}</span>
+                        <div style="margin-top:8px">
+                            <p>
+                                <i style="padding-right:5px" class="fa fa-calendar" aria-hidden="true"></i>{{ep.airdate}} - {{ep.airtime}}
+                                <br>
+                                <span><i style="padding-right:5px" class="fa fa-clock-o" aria-hidden="true"></i> Time: {{ep.runtime}}</span>
+                                <br>
+                                <button (click)="goToTvMazeLink(ep.url)" style="width:180px;height:30px;font-size:10px;line-height:3" class="btn waves-effect waves-light" type="submit" name="action">TVMaze's link
     <i style="line-height: 2;font-size: 1rem;" class="material-icons right">send</i>
                 </button>
-              </p>
-            </div>
-            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <!-- <ul class="collection" ng-if="episodes">
+                            </p>
+                        </div>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- <ul class="collection" ng-if="episodes">
         <li class="collection-item avatar" *ngFor="let ep of episodes" style="padding-left: 30px;">
           <div class="row">
             <div class="col s3">
@@ -122,5 +121,5 @@
           </div>
         </li>
       </ul> -->
-  </div>
+    </div>
 </div>
