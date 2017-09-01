@@ -48,36 +48,36 @@
   </li>
 </ul> -->
 <app-spinner [show]="showSpinner"></app-spinner>
-<div class="row main-content">
-    <div class="card small col s6" style="height:auto" *ngIf="topShows">
-        <div class="card col s6" [routerLink]="['/show', show.id]" *ngFor="let show of topShows | slice:0:6">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="{{show.image.medium}}">
-            </div>
-            <div class="card-content" style="padding: 6px 0px 0px 0px;">
-                <span class="card-title activator grey-text text-darken-4" style="font-size:15px;font-weight:500">{{show.name}}<i class="material-icons right">more_vert</i></span>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-        </div>
+<div class="row main-content" style="padding:10px 20px 20px 10px">
+  <div class="card small col s6" style="height:auto" *ngIf="topShows">
+    <div class="card col s6" [routerLink]="['/show', show.id]" *ngFor="let show of topShows | slice:0:6">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="{{show.image.medium}}">
+      </div>
+      <div class="card-content" style="padding: 6px 0px 0px 0px;">
+        <span class="card-title activator grey-text text-darken-4" style="font-size:15px;font-weight:500">{{show.name}}<i class="material-icons right">more_vert</i></span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+    </div>
 
+  </div>
+  <div class="card small col s6" style="height:auto" *ngIf="films">
+    <div class="card col s6" [routerLink]="['/film',  fl.id]" *ngFor="let fl of films.results | slice:0:6">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="https://image.tmdb.org/t/p/w185/{{fl.poster_path}}">
+      </div>
+      <div class="card-content" style="padding: 6px 0px 0px 0px;">
+        <span class="card-title activator grey-text text-darken-4" style="font-size:15px;font-weight:500">{{fl.title}}<i class="material-icons right">more_vert</i></span>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
     </div>
-    <div class="card small col s6" style="height:auto" *ngIf="films">
-        <div class="card col s6" [routerLink]="['/film',  fl.id]" *ngFor="let fl of films.results | slice:0:6">
-            <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="https://image.tmdb.org/t/p/w185/{{fl.poster_path}}">
-            </div>
-            <div class="card-content" style="padding: 6px 0px 0px 0px;">
-                <span class="card-title activator grey-text text-darken-4" style="font-size:15px;font-weight:500">{{fl.title}}<i class="material-icons right">more_vert</i></span>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
 
 <!--

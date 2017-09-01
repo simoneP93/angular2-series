@@ -105,10 +105,10 @@
 <header>
   <nav class="row" style="margin: 0;">
     <div class="nav-wrapper" style="background-color: #2221a5;width:100%">
-      <div class="col s1" style="text-align: center;">
+      <!-- <div class="col s1" style="text-align: center;">
         <i class="fa fa-bars" (click)="left1.toggle()" aria-hidden="true"></i>
-      </div>
-      <div class="col s5">
+      </div> -->
+      <div class="col s4">
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a style="color: white;font-size: 1.1em; font-weight: 500;" routerLink="/" routerLinkActive="active">Home</a></li>
 
@@ -125,7 +125,7 @@
           </li> -->
         </ul>
       </div>
-      <div class="input-field col s6">
+      <div class="input-field col s8">
         <i class="material-icons prefix" style="line-height:2.6">search</i>
         <input [(ngModel)]="search" type="text" id="autocomplete-input" class="autocomplete" (ngModelChange)="getSearches()">
         <label for="autocomplete-input" style="line-height:3;color:white">Search</label>
@@ -136,7 +136,7 @@
 
 
 
-<div>
+<div class="main-container">
   <router-outlet></router-outlet>
 </div>
 <!-- <my-heroes></my-heroes> -->

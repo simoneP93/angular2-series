@@ -1,47 +1,77 @@
 <app-spinner [show]="showSpinner"></app-spinner>
 
 <div class="fixed-action-btn horizontal click-to-toggle" style="top:13%">
-    <a class="btn-floating btn-large red">
+  <a class="btn-floating btn-large red">
         <i class="material-icons">menu</i>
     </a>
-    <ul style="height: 60px;top: 4%;">
-        <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-        <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-        <li (mouseenter)="toggleCategories()" (click)="toggleCategories()"><a class="btn-floating blue"><i class="fa fa-tags" aria-hidden="true"></i></a></li>
-    </ul>
+  <ul style="height: 60px;top: 4%;">
+    <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+    <li (mouseenter)="toggleCategories()" (click)="toggleCategories()"><a class="btn-floating blue"><i class="fa fa-tags" aria-hidden="true"></i></a></li>
+  </ul>
 </div>
 
 
 <div class="row" style="margin: 9% 20px 20px 20px;height: 6vh;margin-bottom: 0;line-height: 2;" *ngIf="showCategories" [@enterAnimation]>
-    <div class="col s12" style="padding: 20px;background: white; ">
-        <div class="col s3" *ngFor="let g of genres">
-            <input type="checkbox" id="{{g.id}}" [(ngModel)]="categoriesFiltersList[g.id]" />
-            <label for="{{g.id}}">{{g.name}}</label>
-        </div>
-        <div class="col s12 " style="margin-top:10px">
-            <button (click)="filterForCategories()" class="btn waves-effect waves-light" style="float:right" type="button" name="action">Filter!
+  <div class="col s12" style="padding: 20px;background: white; ">
+    <div class="col s3" *ngFor="let g of genres">
+      <input type="checkbox" id="{{g.id}}" [(ngModel)]="categoriesFiltersList[g.id]" />
+      <label for="{{g.id}}">{{g.name}}</label>
+    </div>
+    <div class="col s12 " style="margin-top:10px">
+      <button (click)="filterForCategories()" class="btn waves-effect waves-light" style="float:right" type="button" name="action">Filter!
     <i class="material-icons right">send</i>
   </button>
-        </div>
     </div>
+  </div>
 </div>
 
-<div class="row ">
-    <div class="card small col s12 wrapper-films " *ngIf="films">
-        <div class="card col s6" [routerLink]="[ '/film', fl.id] " *ngFor="let fl of films.results">
-            <div class="card-image waves-effect waves-block waves-light ">
-                <img class="activator img-film " src="https://image.tmdb.org/t/p/w300/{{fl.backdrop_path}} ">
+<div class="row">
+  <div class="card small col s12 wrapper-films " *ngIf="films">
+    <div class="card col s6 img-container" [routerLink]="[ '/film', fl.id] " *ngFor="let fl of films.results">
+      <div class="card-image waves-effect waves-block waves-light ">
+        <img class="activator img-film " src="https://image.tmdb.org/t/p/w500_and_h281_bestv2/{{fl.backdrop_path}} ">
+      </div>
+      <div class="card-content wrapper-infofilm">
+        <div class="row">
+          <div class="col s12 padding-0">
+            <div class="col s9 padding-0">
+
+              <span class="card-title activator grey-text text-darken-4 title">{{fl.title}}
+           </span>
             </div>
-            <div class="card-content " style="padding: 6px 0px 0px 0px; ">
-                <span class="card-title activator grey-text text-darken-4 " style="font-size:15px;font-weight:500 ">{{fl.title}}<i class="material-icons right ">more_vert</i></span>
+            <div class="col s3  avarage-section">
+              <span>
+              {{fl.vote_average }}
+                </span>
+              <i class="material-icons right info-film-icon">star</i>
             </div>
-            <div class="card-reveal ">
-                <span class="card-title grey-text text-darken-4 ">Card Title<i class="material-icons right ">close</i></span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+          <div class="col s12 padding-0">
+            <div class="col s9 padding-0">
+
+              <span *ngFor="let gen of genres" class="card-title activator grey-text text-darken-4 categories">
+            <ng-container *ngIf="checkCategories(gen,fl.genre_ids)">{{gen.name}}
+            </ng-container>
+           </span>
             </div>
+            <div class="col s3 date-container">
+              <span class="date">
+              {{fl.release_date | slice:0:4 }}
+                </span>
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+            </div>
+          </div>
         </div>
+
+      </div>
+      <!-- <div class="card-reveal ">
+        <span class="card-title grey-text text-darken-4 ">Card Title<i class="material-icons right ">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div> -->
     </div>
+  </div>
 </div>
 <div class="row" *ngIf="totalpages" style="    margin: 0;
     padding: 0;
@@ -49,13 +79,13 @@
     overflow-y: hidden;
     white-space: nowrap;
     width:500px">
-    <div class="col s12">
-        <ul class="pagination">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li [class.active]="(page+1)==currentPage" [class.waves-effect]="page!=selectedPage" *ngFor="let page of totalpages" (click)="changePage(page)">
-                <a>{{page + 1}}</a>
-            </li>
-            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-        </ul>
-    </div>
+  <div class="col s12">
+    <ul class="pagination">
+      <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+      <li [class.active]="(page+1)==currentPage" [class.waves-effect]="page!=selectedPage" *ngFor="let page of totalpages" (click)="changePage(page)">
+        <a>{{page + 1}}</a>
+      </li>
+      <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+  </div>
 </div>

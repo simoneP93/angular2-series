@@ -52,7 +52,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [SeriesService,FilmService],
+  providers: [SeriesService, FilmService],
   bootstrap: [AppComponent]
 })
 
