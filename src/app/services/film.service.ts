@@ -16,6 +16,12 @@ export class FilmService {
       .toPromise()
       .then(response => response.json())
   }
+  getFilmsByCategoriesForPage(ids,page){
+      return this.http.get(FilmAPI +'/discover/movie?api_key=1053186c451dc5c0c9a2a89a6fb14c15&language=en-US&sort_by=popularity.desc'+
+                       '&page='+page+'&with_genres='+ids)
+                       .toPromise()
+      .then(response => response.json())
+  }
   getSingleFilm(filmId){
       return this.http.get(FilmAPI+ '/movie/'+filmId+'?api_key=1053186c451dc5c0c9a2a89a6fb14c15&language=en-US')
       .toPromise()
@@ -29,6 +35,11 @@ export class FilmService {
   }
    getReviewbyFilm(filmId){
       return this.http.get(FilmAPI+ '/movie/'+filmId+'/reviews?api_key=1053186c451dc5c0c9a2a89a6fb14c15&language=en-US')
+      .toPromise()
+      .then(response => response.json())
+  }
+  getGenres() {
+    return this.http.get(FilmAPI+ '/genre/tv/list?api_key=1053186c451dc5c0c9a2a89a6fb14c15&language=en-US')
       .toPromise()
       .then(response => response.json())
   }

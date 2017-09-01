@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
 
   topShows: any;
 films:any;
-
+// topSpinner:number=0;
+showSpinner:boolean=true;
   constructor(private seriesService: SeriesService,
   private filmService: FilmService) { }
 
@@ -22,12 +23,12 @@ films:any;
     this.getTopFilms();
   }
 
-
   getTopShows(): void {
     // debugger;
     this.seriesService.getTopShows().then(shows => {
       this.topShows = shows;
       console.log(this.topShows);
+      this.showSpinner=false;
     });
   }
   getTopFilms(): void {

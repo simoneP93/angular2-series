@@ -20,6 +20,7 @@ export class ShowDetailComponent implements OnInit {
   seasonSelected: number = -1;
   cast: any;
   crew: any;
+showSpinner:boolean=true;
 
   constructor(
     private seriesService: SeriesService,
@@ -53,6 +54,7 @@ export class ShowDetailComponent implements OnInit {
     this.episodes = this.show._embedded.episodes;
     this.initialEpisodes = this.episodes;
     console.log(this.seasonSelected)
+    this.showSpinner=false;
   }
 
   getEpisodesBySeason(seasonId) {

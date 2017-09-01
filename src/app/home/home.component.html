@@ -47,7 +47,7 @@
     <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
   </li>
 </ul> -->
-
+<app-spinner [show]="showSpinner"></app-spinner>
 <div class="row main-content">
     <div class="card small col s6" style="height:auto" *ngIf="topShows">
         <div class="card col s6" [routerLink]="['/show', show.id]" *ngFor="let show of topShows | slice:0:6">

@@ -15,7 +15,6 @@ export class AppComponent {
 genres:any;
 
   constructor(private seriesService: SeriesService) {
-this.getGenres();
   }
 
   getSearches(): void {
@@ -26,12 +25,5 @@ this.getGenres();
       console.log(searches);
     });
   }
-getGenres(): void {
-    // debugger;
-    console.log(this.search);
-    this.seriesService.getGenres().then(genres => {
-      this.genres = genres;
-      console.log(genres);
-    });
-  }
+
 }
