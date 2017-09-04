@@ -15,7 +15,8 @@
 }
 
 .img-container {
-    padding: 0;
+    padding: 0 10px 0 10px;
+    background: transparent;
 }
 
 .activator.img-film {
@@ -60,4 +61,20 @@
 
 .date {
     margin-left: 40%;
+}
+
+.main-container {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.container-filter-panel {
+    margin-top: 2em;
+}
+
+.button-options {
+    float: right;
+    bottom: 100%;
+    position: relative;
 }

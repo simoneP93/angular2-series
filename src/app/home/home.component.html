@@ -48,7 +48,65 @@
   </li>
 </ul> -->
 <app-spinner [show]="showSpinner"></app-spinner>
-<div class="row main-content" style="padding:10px 20px 20px 10px">
+<div class="row">
+  <div class="col s12">
+    <div class="col s3" *ngIf="genres">
+      <ul class="collection">
+        <li class="collection-item" (click)="selectGenre(gen)" [class.active]="gen.id==selectedGenre" *ngFor="let gen of genres">
+          <div>{{gen.name}}<a class="secondary-content"><i class="material-icons">keyboard_arrow_right</i></a></div>
+        </li>
+      </ul>
+    </div>
+    <div class="col s7">
+      <div class="card-tabs">
+        <ul class="tabs tabs-fixed-width">
+          <!--<li class="tab"><a class="active" (click)="switchTabsFunction(0)" href="#test4">Episods</a></li>-->
+          <li class="tab"><a [class.active]="currentType==0" (click)="switchTabsFunction(0)">Films</a></li>
+          <li class="tab"><a [class.active]="currentType==1" (click)="switchTabsFunction(1)">Series TV</a></li>
+        </ul>
+      </div>
+      <div class="card-content grey lighten-4">
+        <div class="row" *ngIf="selectedTab==0">
+          <div class="card small col s12" style="height:auto" *ngIf="films">
+            <div class="card col s6" [routerLink]="['/film',  fl.id]" *ngFor="let fl of films.results | slice:0:6">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="https://image.tmdb.org/t/p/w500_and_h281_bestv2/{{fl.backdrop_path}}">
+              </div>
+              <div class="card-content" style="padding: 6px 0px 0px 0px;">
+                <span class="card-title activator grey-text text-darken-4" style="font-size:15px;font-weight:500">{{fl.title}}<i class="material-icons right">more_vert</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="selectedTab==1">
+          <div class="card small col s12" style="height:auto">
+            <div class="card col s6" [routerLink]="['/show', show.id]" *ngFor="let show of topShows | slice:0:6">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{show.image.medium}}">
+              </div>
+              <div class="card-content" style="padding: 6px 0px 0px 0px;">
+                <span class="card-title activator grey-text text-darken-4" style="font-size:15px;font-weight:500">{{show.name}}<i class="material-icons right">more_vert</i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- <div class="row main-content">
   <div class="card small col s6" style="height:auto" *ngIf="topShows">
     <div class="card col s6" [routerLink]="['/show', show.id]" *ngFor="let show of topShows | slice:0:6">
       <div class="card-image waves-effect waves-block waves-light">
@@ -78,7 +136,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <!--
 <div class="row" style="top: 65px;position: relative;display: block;margin: 10px 15px 15px 10px;">

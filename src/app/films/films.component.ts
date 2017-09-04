@@ -59,27 +59,48 @@ export class FilmsComponent implements OnInit {
   categoriesFiltersList: boolean[] = [];
   categoriesFiltersListId: string[];
   currentPage: number = -1;
+  currentType: string = 'popular';
 
   constructor(private filmService: FilmService) { }
 
   ngOnInit() {
-    this.getTopFilms();
-
+    // this.getTopFilms();
+    this.getFilmsByType(this.currentType);
 
   }
 
   getTopFilms(): void {
     // debugger;
     this.showSpinner = true;
-    this.filmService.getFilms().then(films => {
-      this.films = films;
-      this.initialFilms = films;
-      this.totalpages = this.getPages(this.films.total_pages);
 
-      console.log(this.films);
-      this.getGenres();
-    });
+    // this.filmService.getFilms().then(films => {
+    //   this.films = films;
+    //   this.initialFilms = films;
+    //   this.totalpages = this.getPages(this.films.total_pages);
+
+    //   console.log(this.films);
+    //   this.getGenres();
+    // });
   }
+
+  getFilmsByType(type) {
+    this.filmService.getFilmsByType(this.currentPage == -1 ? 1 : this.currentPage, type).subscribe(
+      films => {
+        this.films = films
+        this.initialFilms = films;
+        this.totalpages = this.getPages(this.films.total_pages);
+
+        console.log(this.films);
+        this.getGenres();
+        this.showSpinner = false;
+      },
+      err => {
+        // Log errors if any
+        console.log(err);
+      });
+  }
+
+
   getGenres(): void {
     // debugger;
     this.filmService.getGenres().then(genres => {
@@ -87,7 +108,7 @@ export class FilmsComponent implements OnInit {
         this.genres = genres.genres;
       }
       // this.checkCategories(this.genres, this.films);
-      console.log(this.genres);
+      console.log(JSON.stringify(this.genres));
       console.log(this.films);
       this.showSpinner = false;
 
@@ -126,10 +147,20 @@ export class FilmsComponent implements OnInit {
 
   changePage(page) {
     this.currentPage = page + 1;
-    this.filterForCategories();
+    console.log(this.categoriesFiltersListId);
+    if (this.categoriesFiltersListId && this.categoriesFiltersListId.length > 0)
+      this.filterForCategories();
+    else
+      this.getFilmsByType(this.currentType);
   }
   toggleCategories() {
     this.showCategories = !this.showCategories;
     // this.categoriesAnimation.state=event=='y' ?  'active' : 'inactive';
+  }
+
+  switchTabsFunction(type) {
+    this.currentType = type;
+    this.showSpinner = true;
+    this.getFilmsByType(type);
   }
 }

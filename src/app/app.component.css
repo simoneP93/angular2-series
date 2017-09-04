@@ -1,15 +1,14 @@
-.main-container {
-    width: 1000px;
-    margin: 0 auto;
-    margin-top: 50px;
-}
-
-
 /*example tour of heroes*/
 
 .selected {
     background-color: #CFD8DC !important;
     color: white;
+}
+
+.main-container {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1%;
 }
 
 .heroes {

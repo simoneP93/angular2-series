@@ -1,56 +1,57 @@
 <app-spinner [show]="showSpinner"></app-spinner>
 
 <div class="row">
-    <div class="col s12 m12" *ngIf="film" style="padding:0">
-        <div class="card horizontal" style="background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;margin-top:0" [style.background-image]="getBackground('http://image.tmdb.org/t/p/w780/'+ film.backdrop_path)">
-            <div class="col s12" style="opacity: 0.8;width:100%;
+  <div class="col s12 m12" *ngIf="film" style="padding:0">
+    <div class="card horizontal" style="background-size: cover;background-repeat: no-repeat;background-position: 50% 50%;margin-top:0"
+      [style.background-image]="getBackground('http://image.tmdb.org/t/p/w780/'+ film.backdrop_path)">
+      <div class="col s12" style="opacity: 0.8;width:100%;
     background-image: radial-gradient(at 4% 15%, #334046 0%, #376f89 100%);">
-                <div class="col s3">
-                    <div class="" style="height: 100%;">
-                        <img style="margin: 28px 20px 0 20px;" src="https://image.tmdb.org/t/p/w185/{{film.poster_path}}">
+        <div class="col s3">
+          <div class="" style="height: 100%;">
+            <img style="margin: 28px 20px 0 20px;" src="https://image.tmdb.org/t/p/w185/{{film.poster_path}}">
+          </div>
+        </div>
+        <div class="col s9">
+          <div class="card-stacked">
+            <div class="card-content">
+              <h2 class="header" style="font-weight: 600;color: #cccccc;">{{film.title}}</h2>
+              <p style="font-size: 1.2em;margin-bottom: 10px;" *ngIf="film">
+                <span style="font-weight: 600;color: #cccccc;">{{film.release_date}}</span>
+              </p>
+              <div>
+                <span style="font-weight: 600;color: #cccccc;">{{film.overview}}</span>
+              </div>
+              <div class="row" style="margin-top:15px">
+                <div class="col s4">
+
+                  <div class="c100 p25" style="font-size:100px">
+                    <span>{{film.vote_average * 10}}%</span>
+                    <div class="slice">
+                      <div class="bar"></div>
+                      <div class="fill"></div>
                     </div>
+                  </div>
                 </div>
-                <div class="col s9">
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <h2 class="header" style="font-weight: 600;color: #cccccc;">{{film.title}}</h2>
-                            <p style="font-size: 1.2em;margin-bottom: 10px;" *ngIf="film">
-                                <span style="font-weight: 600;color: #cccccc;">{{film.release_date}}</span>
-                            </p>
-                            <div>
-                                <span style="font-weight: 600;color: #cccccc;">{{film.overview}}</span>
-                            </div>
-                            <div class="row" style="margin-top:15px">
-                                <div class="col s4">
 
-                                    <div class="c100 p25" style="font-size:100px">
-                                        <span>{{film.vote_average * 10}}%</span>
-                                        <div class="slice">
-                                            <div class="bar"></div>
-                                            <div class="fill"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!--<show-info [show]="show"></show-info>-->
-                        </div>
-                    </div>
-
-                </div>
+              </div>
+              <!--<show-info [show]="show"></show-info>-->
             </div>
+          </div>
 
         </div>
-        <div class="card-tabs">
-            <ul class="tabs tabs-fixed-width">
-                <!--<li class="tab"><a class="active" (click)="switchTabsFunction(0)" href="#test4">Episods</a></li>-->
-                <li class="tab"><a (click)="switchTabsFunction(3)">Reviews</a></li>
-                <li class="tab"><a (click)="switchTabsFunction(1)">Cast</a></li>
-                <li class="tab"><a (click)="switchTabsFunction(2)">Crew</a></li>
-            </ul>
-        </div>
-        <div class="card-content grey lighten-4">
-            <!--<div id="test4" style="margin: 35px;" *ngIf="selectedTab==0">
+      </div>
+
+    </div>
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <!--<li class="tab"><a class="active" (click)="switchTabsFunction(0)" href="#test4">Episods</a></li>-->
+        <li class="tab"><a (click)="switchTabsFunction(3)">Reviews</a></li>
+        <li class="tab"><a (click)="switchTabsFunction(1)">Cast</a></li>
+        <li class="tab"><a (click)="switchTabsFunction(2)">Crew</a></li>
+      </ul>
+    </div>
+    <div class="card-content grey lighten-4">
+      <!--<div id="test4" style="margin: 35px;" *ngIf="selectedTab==0">
 
                 <div class="row">
                     <div class="col s2" *ngFor="let season of seasons" [attr.data-index]="i" (click)="getEpisodesBySeason(season.number)">
@@ -58,74 +59,76 @@
                     </div>
                 </div>
             </div>-->
-            <div id="test6" style="margin: 35px;" *ngIf="selectedTab==3">
+      <div id="test6" style="margin: 35px;" *ngIf="selectedTab==3">
 
-                <div class="row">
-                    <ul class="collection">
-                        <li class="collection-item avatar" *ngFor="let review of reviews">
-                            <!--<img src="images/yuna.jpg" alt="" class="circle">-->
-                            <i class="material-icons medium" style="font-size:2.6rem;position: absolute; width: 42px; height: 42px; overflow: hidden; left: 15px; display: inline-block; vertical-align: middle;">face</i>
-                            <span class="title" style="font-weight:600">{{review.author}}</span>
-                            <p>{{review.content}}
-                            </p>
-                            <!--<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>-->
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div id="test5" *ngIf="cast && selectedTab==1">
-                <div class="row">
-                    <div class="col s3" *ngFor="let cs of cast | slice:0:20">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
+        <div class="row">
+          <ul class="collection">
+            <li class="collection-item avatar" *ngFor="let review of reviews">
+              <!--<img src="images/yuna.jpg" alt="" class="circle">-->
+              <i class="material-icons medium" style="font-size:2.6rem;position: absolute; width: 42px; height: 42px; overflow: hidden; left: 15px; display: inline-block; vertical-align: middle;">face</i>
+              <span class="title" style="font-weight:600">{{review.author}}</span>
+              <p>{{review.content}}
+              </p>
+              <!--<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>-->
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="test5" *ngIf="cast && selectedTab==1">
+        <div class="row">
+          <div class="col s3" *ngFor="let cs of cast | slice:0:20" [routerLink]="[ '/actor', cs.id]">
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
 
-                                <img style="width: 260px;height:390px;margin: 14px auto;" class="activator" onerror="this.src='https://image.flaticon.com/icons/svg/167/167750.svg';" src="https://image.tmdb.org/t/p/w300/{{cs.profile_path}}">
-                            </div>
-                            <div class="card-content" style="padding: 5px 15px 5px 16px;">
-                                <i class="material-icons right" style="margin-left:0">more_vert</i>
+                <img style="width: 260px;height:390px;margin: 14px auto;" class="activator" onerror="this.src='https://image.flaticon.com/icons/svg/167/167750.svg';"
+                  src="https://image.tmdb.org/t/p/w300/{{cs.profile_path}}">
+              </div>
+              <div class="card-content" style="padding: 5px 15px 5px 16px;">
+                <i class="material-icons right" style="margin-left:0">more_vert</i>
 
-                                <span class="card-title activator grey-text text-darken-4">
+                <span class="card-title activator grey-text text-darken-4">
                   <span style="font-size:15px;font-weight:500">{{cs.name}} as </span>
-                                <p style="font-size:16px;font-weight:600"> {{cs.character}}</p>
-                                </span>
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Card Title
+                <p style="font-size:16px;font-weight:600"> {{cs.character}}</p>
+                </span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title
                   <i class="material-icons right">close</i></span>
-                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              </div>
             </div>
-            <div id="test6" *ngIf="crew && selectedTab==2">
-                <div class="row">
-                    <div class="col s3" *ngFor="let cr of crew">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img style="width: 230px;height:300px;margin: 14px auto;" class="activator" onerror="this.src='https://image.flaticon.com/icons/svg/167/167750.svg';" src="https://image.tmdb.org/t/p/w185/{{cr.profile_path}}">
-                            </div>
-                            <div class="card-content" style="padding: 5px 15px 5px 16px;">
-                                <i class="material-icons right" style="margin-left:0">more_vert</i>
+          </div>
+        </div>
+      </div>
+      <div id="test6" *ngIf="crew && selectedTab==2">
+        <div class="row">
+          <div class="col s3" *ngFor="let cr of crew">
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img style="width: 230px;height:300px;margin: 14px auto;" class="activator" onerror="this.src='https://image.flaticon.com/icons/svg/167/167750.svg';"
+                  src="https://image.tmdb.org/t/p/w185/{{cr.profile_path}}">
+              </div>
+              <div class="card-content" style="padding: 5px 15px 5px 16px;">
+                <i class="material-icons right" style="margin-left:0">more_vert</i>
 
-                                <span class="card-title activator grey-text text-darken-4" style="margin-bottom:0">
+                <span class="card-title activator grey-text text-darken-4" style="margin-bottom:0">
                   <span style="font-size:14px;font-weight:600">{{cr.name}}</span>
 
 
-                                </span>
-                                <span style="font-size:14px;font-weight:500">{{cr.job}}</span>
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Card Title
+                </span>
+                <span style="font-size:14px;font-weight:500">{{cr.job}}</span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Card Title
                   <i class="material-icons right">close</i></span>
-                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+              </div>
             </div>
+          </div>
         </div>
-        <!--<ul class="collection" *ngIf="checkSelectedSeason()">
+      </div>
+    </div>
+    <!--<ul class="collection" *ngIf="checkSelectedSeason()">
             <li class="collection-item avatar" *ngFor="let ep of episodes" style="padding-left: 30px;">
                 <div class="row">
                     <div class="col s2">
@@ -153,5 +156,5 @@
                 </div>
             </li>
         </ul>-->
-    </div>
+  </div>
 </div>

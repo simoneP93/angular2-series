@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+// import { MaterializeAction } from '../../../lib/materialize-directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpModule } from '@angular/http';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './routes/app-routing.module';
 
@@ -24,8 +26,9 @@ import { ShowInfoComponent } from './show-info/show-info.component';
 import { FilmsComponent } from './films/films.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ActorProfileComponent } from './actor-profile/actor-profile.component';
 
-
+import { MaterializeModule } from "angular2-materialize";
 
 @NgModule({
   declarations: [
@@ -38,7 +41,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ShowInfoComponent,
     FilmsComponent,
     FilmDetailComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ActorProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +51,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     // AsideModule,
     AppRoutingModule,
     HttpModule,
+    MaterializeModule,
+    ReactiveFormsModule
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   schemas: [

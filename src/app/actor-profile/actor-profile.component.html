@@ -1,0 +1,90 @@
+<div class="row" *ngIf="info">
+  <div class="col s12">
+    <div class="card horizontal">
+      <div class="col s12" style="opacity: 0.8;width:100%;">
+        <div class="col s2">
+          <div class="" style="height: 100%;">
+            <img style="margin: 28px 20px 0 20px;" src="https://image.tmdb.org/t/p/w185/{{info.profile_path}}">
+          </div>
+        </div>
+        <div class="col s10">
+          <div class="card-stacked">
+            <div class="card-content">
+              <h2 class="header name-actor">{{info.name}}</h2>
+              <!-- <p style="font-size: 1.2em;margin-bottom: 10px;" *ngIf="film">
+                <span style="font-weight: 600;color: #cccccc;">{{film.release_date}}</span>
+              </p> -->
+              <div>
+                <span style="font-weight: 600;color: #cccccc;">{{info.biography}}</span>
+              </div>
+              <div class="row" style="margin-top:15px">
+                <div class="col s4">
+
+                  <div class="c100 p25" style="font-size:100px">
+                    <span>30%</span>
+                    <div class="slice">
+                      <div class="bar"></div>
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s8">
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="row" *ngIf="info">
+  <div class="col s12 m2">
+    <div class="card-panel teal" style="background-color:white !important">
+      <div class="row" style="text-align:left">
+        <p class="" style="font-size: 1.2em;font-weight: 700;color: black;">Gender</p>
+        <p class="" style="font-size: 1.2em;font-weight: 700;color: black;">{{info.gender==1 ? 'Female' : 'Male'}}</p>
+
+      </div>
+      <div class="row" style="text-align:left">
+        <p class="" style="font-size: 1.2em;font-weight: 700;color: black;">Birthday</p>
+        <p class="" style="font-size: 1.2em;font-weight: 700;color: black;">{{info.birthday}}</p>
+
+      </div>
+      <div class="row" style="text-align:left">
+        <p class="" style="font-size: 1.2em;font-weight: 700;color: black;">Place of birth</p>
+        <p class="" style="font-size: 1.2em;font-weight: 700;color: black;">{{info.place_of_birth}}</p>
+
+      </div>
+      <div class="row" style="text-align:left">
+        <p class="" style="font-size: 1.2em;font-weight: 700;color: black;">Gender</p>
+        <p class="" style="font-size: 1.2em;font-weight: 700;color: black;">{{info.gender==1 ? 'Female' : 'Male'}}</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m10" *ngIf="infoImdb && infoImdb.known_for">
+    <div class="col s3" *ngFor="let cs of infoImdb.known_for" [routerLink]="[ '/film', cs.id]">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+
+          <img style="width: 260px;height:390px;margin: 14px auto;" class="activator" onerror="this.src='https://image.flaticon.com/icons/svg/167/167750.svg';"
+            src="https://image.tmdb.org/t/p/w300/{{cs.poster_path}}">
+        </div>
+        <div class="card-content" style="padding: 5px 15px 5px 16px;">
+          <!-- <i class="material-icons right" style="margin-left:0">more_vert</i> -->
+
+          <span class="card-title activator grey-text text-darken-4">
+                  <span style="font-size:15px;font-weight:500">{{cs.title}} </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

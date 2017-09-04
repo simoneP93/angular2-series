@@ -127,8 +127,11 @@
       </div>
       <div class="input-field col s8">
         <i class="material-icons prefix" style="line-height:2.6">search</i>
-        <input [(ngModel)]="search" type="text" id="autocomplete-input" class="autocomplete" (ngModelChange)="getSearches()">
+        <input [(ngModel)]="search" type="text" id="autocomplete-input" (change)="getSearches()" class="autocomplete">
         <label for="autocomplete-input" style="line-height:3;color:white">Search</label>
+        <ul class="autocomplete-content dropdown-content" *ngIf="searches && searches.results">
+          <li class="" *ngFor="let search of searches.results">{{search.name}}</li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -136,9 +139,12 @@
 
 
 
-<div class="main-container">
+<div class="row main-container">
+
   <router-outlet></router-outlet>
+
 </div>
+
 <!-- <my-heroes></my-heroes> -->
 
 
